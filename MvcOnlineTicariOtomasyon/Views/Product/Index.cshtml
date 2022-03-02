@@ -1,0 +1,51 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-bordered table-hover" style="margin-top: 1rem;">
+    <thead class="thead-dark">
+    <th>ID</th>
+    <th>İsim</th>
+    <th>Marka</th>
+    <th>Stok</th>
+    <th>Alış Fiyat</th>
+    <th>Satış Fiyat</th>
+    <th>Resim</th>
+    <th>Kategori</th>
+    <th>Güncelle</th>
+    <th>Sil</th>
+    </thead>
+    <tbody>
+        @foreach (var l in Model)
+        {
+            <tr>
+                <td>@l.Id</td>
+                <td>@l.Name</td>
+                <td>@l.Brand</td>
+                <td>@l.Stock</td>
+                <td>@l.BuyPrice ₺</td>
+                <td>@l.SellPrice ₺</td>
+                <td><img src="@l.Image" style="height: 100px" width="150px"/></td>
+                <td>@l.Category.Name</td>
+                <td style="text-align: center "><a href="/Product/GetProduct/@l.Id" class="btn btn-warning" style="color: black">Güncelle</a></td>
+                <td style="text-align: center "><a href="/Product/RemoveProduct/@l.Id" class="btn btn-danger">Sil</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="row">
+    <div class="col-6">
+        <div class="justify-content-start d-flex">
+            <a href="/Product/AddProduct" class="btn btn-primary">Yeni Ürün</a>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="justify-content-end d-flex">
+            <a href="/Product/ProductList/" target="_blank" class="btn btn-default" style="background-color: darksalmon"><i class="bi bi-printer"></i></a>
+        </div>
+    </div>
+</div>
+

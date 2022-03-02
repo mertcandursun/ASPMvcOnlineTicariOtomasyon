@@ -1,0 +1,24 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Bills
+@{
+    ViewBag.Title = "GetBill";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br/>
+<h2>Fatura Güncelleme Sayfası</h2>
+<br />
+
+<div class="col">
+    @using(Html.BeginForm("UpdateBill", "Bill", FormMethod.Post)) { 
+        @Html.HiddenFor(x => x.Id)
+        <b><label class="mt-1">Seri NO : </label></b>@Html.TextBoxFor(x => x.SerialNumber, new { @class = "form-control" })
+        <b><label class="mt-1">Sıra NO : </label></b>@Html.TextBoxFor(x => x.RowNumber, new { @class = "form-control" })
+        <b><label class="mt-1">Vergi Dairesi : </label></b>@Html.TextBoxFor(x => x.TaxAdministration, new { @class = "form-control" })
+        <b><label class="mt-1">Tarih : </label></b>@Html.TextBoxFor(x => x.Date, "{0:yyyy-MM-dd}", new { @class = "form-control", @type = "date"})
+        <b><label class="mt-1">Saat : </label></b>@Html.TextBoxFor(x => x.HourTime, new { @class = "form-control", @type = "time"})
+        <b><label class="mt-1">Teslim Eden : </label></b>@Html.TextBoxFor(x => x.Sender, new { @class = "form-control" }) @*@Html.TextBoxFor(x => x.CategoryID, new { @class = "form-control" })*@
+        <b><label class="mt-1">Teslim Alan : </label></b>@Html.TextBoxFor(x => x.Receiver, new { @class = "form-control" })
+        <b><label class="mt-1">Toplam : </label></b>@Html.TextBoxFor(x => x.Total, new { @class = "form-control mb-3" })
+        <button class="btn btn-info">Güncelle</button>
+    }
+</div>

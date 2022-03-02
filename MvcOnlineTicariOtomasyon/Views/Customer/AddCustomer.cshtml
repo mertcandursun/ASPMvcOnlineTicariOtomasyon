@@ -1,0 +1,15 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Customer
+@{
+    ViewBag.Title = "AddCustomer";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2 class="justify-content-center" style="display: flex">Yeni Cari</h2>
+
+    <form class="form-group" method="post">
+        <label>Ad : </label>@Html.TextBoxFor(x => x.Name, new {@class = "form-control"})
+        <label>Soyad : </label>@Html.TextBoxFor(x => x.Surname, new {@class = "form-control"})
+        <label>Şehir : </label>@Html.TextBoxFor(x => x.City, new {@class = "form-control"})
+        <label>Mail : </label>@Html.TextBoxFor(x => x.Mail, new {@class = "form-control"})
+        <button type="submit" class="btn btn-success mt-2">Ekle</button>
+    </form>

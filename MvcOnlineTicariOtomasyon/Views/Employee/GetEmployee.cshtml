@@ -1,0 +1,22 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Employee
+@{
+    ViewBag.Title = "GetEmployee";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Personel Düzenle</h2>
+@using (Html.BeginForm("UpdateEmployee", "Employee", FormMethod.Post))
+{
+    <div class="col-11 flex">
+        @Html.HiddenFor(x => x.Id)
+        <label>Adı : </label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        <label>Soyadı : </label>
+        @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+        <label>Resim : </label>
+        @Html.TextBoxFor(x => x.Image, new { @class = "form-control" })
+        <label>Departman : </label>
+        @Html.DropDownListFor(x => x.DepartmentID, (List<SelectListItem>)ViewBag.result, new { @class = "form-control" })
+        <button class="btn btn-success mt-2">Kaydet</button>
+    </div>
+}

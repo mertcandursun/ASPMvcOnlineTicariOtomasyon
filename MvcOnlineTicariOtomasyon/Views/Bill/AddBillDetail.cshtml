@@ -1,0 +1,19 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.BillDetail
+@{
+    ViewBag.Title = "AddBillDetail";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Yeni Fatura Kalem</h2>
+<br />
+<form class="form-group" method="post">
+    <div>
+        <label>Açıklama : </label>@Html.TextBoxFor(x =>x.Description, new {@class="form-control"})
+        <label>Miktar : </label>@Html.TextBoxFor(x =>x.Count, new {@class="form-control"})
+        <label>Birim Fiyat : </label>@Html.TextBoxFor(x =>x.UnitPrice, new {@class="form-control"})
+        <label>Toplam : </label>@Html.TextBoxFor(x =>x.Total, new {@class="form-control"})
+        <label>Fatura ID : </label>@Html.TextBoxFor(x =>x.BillID, new {@class="form-control"})
+    </div>
+    <button type="submit" class="btn btn-info">Kaydet</button>
+</form>
+

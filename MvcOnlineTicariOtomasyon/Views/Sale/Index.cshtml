@@ -1,0 +1,44 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<SaleAction>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br/>
+<table class="table table-bordered table-hover" style="margin-top: 1rem">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Ürün</th>
+            <th>Cari</th>
+            <th>Personel</th>
+            <th>Adet</th>
+            <th>Fiyat</th>
+            <th>Toplam</th>
+            <th>Tarih</th>
+            <th>Detay</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.Id</td>
+                <td>@s.Product.Name</td>
+                <td>@s.Customer.Name @s.Customer.Surname</td>
+                <td>@s.Employee.Name @s.Employee.Surname</td>
+                <td>@s.Number</td>
+                <td>@s.Price</td>
+                <td>@s.TotalPrice</td>
+                <td>@s.Date.ToShortDateString()</td>
+                <td style="text-align: center"><a href="/Sale/SaleDetail/@s.Id" class="btn btn-info">Satış Detay</a></td>
+                <td style="text-align: center"><a href="/Sale/GetSale/@s.Id" class="btn btn-warning text-white">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a href="/Sale/AddSale" class="btn btn-primary">Satış Oluştur</a>
+</div>

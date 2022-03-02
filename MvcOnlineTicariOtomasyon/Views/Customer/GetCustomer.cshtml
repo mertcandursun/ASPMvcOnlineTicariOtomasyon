@@ -1,0 +1,23 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Customer
+@{
+    ViewBag.Title = "GetCustomer";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Cari Güncelle</h2>
+@using (Html.BeginForm("UpdateCustomer", "Customer", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.Id)
+    <label>Ad : </label>@Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <span>@Html.ValidationMessageFor(x => x.Name, "", new { @class = "alert-warning" })</span>
+                                                                                    <br/>
+    <label>Soyad : </label>@Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+    <span>@Html.ValidationMessageFor(x => x.Surname, "", new { @class = "alert-warning" })</span>
+                                                                                      <br/>
+    <label>Şehir : </label>@Html.TextBoxFor(x => x.City, new { @class = "form-control" })
+    <span>@Html.ValidationMessageFor(x => x.City, "", new {@class="alert-warning"})</span>
+                                                                                   <br/>
+    <label>Mail : </label>@Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+    <span>@Html.ValidationMessageFor(x => x.Mail, "", new {@class="alert-warning"})</span>
+    <button type="submit" class="btn btn-success mt-2">Kaydet</button>
+}

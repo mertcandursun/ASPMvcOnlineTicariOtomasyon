@@ -1,0 +1,49 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<Bills>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Faturalar</h2>
+<div class="col">
+    <table class="table table-bordered table-hover" style="margin-top: 1rem;">
+        <thead class="thead-dark">
+            <tr>
+                <th style="text-align: center">ID</th>
+                <th style="text-align: center">Seri No</th>
+                <th style="text-align: center">Sıra No</th>
+                <th style="text-align: center">Vergi Dairesi</th>
+                <th style="text-align: center">Tarih</th>
+                <th style="text-align: center">Saat</th>
+                <th style="text-align: center">Teslim Eden</th>
+                <th style="text-align: center">Teslim Alan</th>
+                <th style="text-align: center">Toplam</th>
+                <th style="text-align: center">Detaylar</th>
+                <th style="text-align: center">İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var d in Model)
+            {
+            <tr>
+                <td>@d.Id</td>
+                <td>@d.SerialNumber</td>
+                <td>@d.RowNumber</td>
+                <td>@d.TaxAdministration</td>
+                <td>@d.Date.ToShortDateString()</td>
+                <td>@d.HourTime</td>
+                <td>@d.Sender</td>
+                <td>@d.Receiver</td>
+                <td>@d.Total</td>
+                <td style="text-align: center"><a type="button" class="btn btn-info" href="/Bill/BillDetail/@d.Id" style="color: white">Detay</a></td>
+                <td style="text-align: center"><a type="button" class="btn btn-warning" style="color: black" href="/Bill/GetBill/@d.Id" style="color: white">Güncelle</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        <a class="btn btn-primary" href="/Bill/AddBill">Yeni Fatura Girişi</a>
+    </div>
+</div>

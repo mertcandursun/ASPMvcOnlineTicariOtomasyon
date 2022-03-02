@@ -1,0 +1,282 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2><b>Genel Tablo İstatistikler</b></h2>
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Custom Theme files -->
+    <link href="~/web2/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <script src="~/web2/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/web2/css/fontawesome.css">
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Metro Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--webfont-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="~/web2/js/jquery.easydropdown.js"></script>
+    <script src="~/web2/js/jquery.nicescroll.js"></script>
+
+    <link href="~/web2/css/jqvmap.css" media="screen" rel="stylesheet" type="text/css" />
+
+
+    <script src="~/web2/js/easyResponsiveTabs.js" type="text/javascript"></script>
+
+    <link href="~/web2/css/nav.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="~/web2/js/main.js"></script> <!-- Resource jQuery -->
+    <!-- chart -->
+    <script src="~/web2/js/Chart1.js"></script>
+    <!-- //chart -->
+
+    <style>
+        #HiddenText {
+            display: none;
+        }
+
+        #DivForHoverItem:hover #HiddenText {
+            display: block;
+        }
+
+        #DivForHoverItem:hover #hideText {
+            display: none;
+        }
+
+        #hoverIcon:hover {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="total-content">
+        <div class="list_of_members">
+            <div class="sales" style="background-color: #1abc9c">
+                <div class="icon">
+                    <a href="/Customer/Index/" class="btn btn-default" id="hoverIcon"><i class="bi bi-people-fill" style="font-size: 1.5rem;"></i></a>
+                </div>
+                <div class="icon-text">
+                    <h4>@ViewBag.totalCustomer</h4>
+                    <p><b>Toplam Cari</b></p>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+            <div class="new-users" style="background-color: cadetblue">
+                <div class="icon">
+                    <a href="/Product/Index/" class="btn btn-default" id="hoverIcon"><i class="bi bi-collection-fill" style="font-size: 1.5rem;"></i></a>
+                </div>
+                <div class="icon-text">
+                    <h4>@ViewBag.totalProduct</h4>
+                    <p><b>Ürün Sayısı</b></p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="orders" style="background-color: #3498db">
+                <div class="icon">
+                    <a href="/Employee/Index/" class="btn btn-default" id="hoverIcon"><i class="bi bi-person-lines-fill" style="font-size: 1.5rem;"></i></a>
+                </div>
+                <div class="icon-text">
+                    <h4>@ViewBag.totalEmployee</h4>
+                    <p><b>Personel Sayısı</b></p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="visitors" style="background-color: #9b59b6">
+                <div class="icon">
+                    <a href="/Category/Index/" class="btn btn-default" id="hoverIcon"><i class="bi bi-tags-fill" style="font-size: 1.3rem;"></i></a>
+                </div>
+                <div class="icon-text">
+                    <h4>@ViewBag.totalCategory</h4>
+                    <p><b>Kategori Sayısı</b></p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="total-content">
+        <div class="list_of_members">
+            <div class="sales" style="background-color: #16a085">
+                <div class="icon">
+                    <a href="/Product/Index/" class="btn btn-default" id="hoverIcon"><i class="bi bi-archive-fill" style="font-size: 1.5rem;"></i></a>
+                </div>
+                <div class="icon-text">
+                    <h4>@ViewBag.totalStock</h4>
+                    <p><b>Toplam Stok</b></p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="new-users" style="background-color: #27ae60">
+                <div class="icon">
+                    <a href="/Product/Index/" class="btn btn-default" id="hoverIcon"><i class="bi bi-list-ol" style="font-size: 1.5rem;"></i></a>
+                </div>
+                <div class="icon-text">
+                    <h4>@ViewBag.totalBrand</h4>
+                    <p><b>Marka Sayısı</b></p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="orders" style="background-color: #c0392b">
+                <div class="icon">
+                    <a href="#" class="btn btn-default" id="hoverIcon"><i class="bi bi-exclamation-triangle-fill" style="font-size: 1.5rem;"></i></a>
+                </div>
+                <div class="icon-text">
+                    <h4>@ViewBag.criticalStock</h4>
+                    <p><b>Kritik Seviye</b></p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="visitors" style="background-color:#8e44ad">
+                <div class="icon">
+                    <a href="#" class="btn btn-default" id="hoverIcon"><i class="bi bi-align-top" style="font-size: 1.5rem;"></i></a>
+                </div>
+                <div class="icon-text">
+                    <div id="DivForHoverItem">
+                        <h4 id="hideText">@ViewBag.maxPriceProduct<span>₺</span> &nbsp;<i class="bi bi-info-circle-fill"></i></h4>
+                        <div id="HiddenText">
+                            <h4 style="font-size: 1.1rem">@ViewBag.maxPriceProductNsme</h4>
+                        </div>
+                    </div>
+                    @*<p>@ViewBag.maxPriceProductNsme</p>*@
+                    <p><b>Max Fiyatlı Ürün</b></p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+
+    <div class="clearfix"></div>
+
+    <div class="total-content">
+        <div class="list_of_members">
+            <div class="sales" style="background-color: #f1c40f">
+                <div class="icon">
+                    <a href="#" class="btn btn-default" id="hoverIcon"><i class="bi bi-align-bottom" style="font-size: 1.5rem;"></i></a>
+                </div>
+                <div class="icon-text">
+                    <div id="DivForHoverItem">
+                        <h4 id="hideText">@ViewBag.minPriceProduct<span>₺</span> &nbsp;<i class="bi bi-info-circle-fill"></i></h4>
+                        <div id="HiddenText">
+                            <h4 style="font-size: 1.1rem">@ViewBag.minPriceProductNsme</h4>
+                        </div>
+                    </div>
+                    <p><b>Min Fiyatlı Ürün</b></p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="new-users" style="background-color:#e67e22">
+                <div class="icon">
+                    <a href="/Product/Index/" class="btn btn-default" id="hoverIcon"><i class="bi bi-emoji-smile-fill" style="font-size: 1.5rem;"></i></a>
+                </div>
+                <div class="icon-text">
+                    <h4>@ViewBag.maxBrand</h4>
+                    <p><b>Max Marka</b></p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="orders" style="background-color:forestgreen">
+                <div class="icon">
+                    <a href="/Sale/Index/" class="btn btn-default" id="hoverIcon"><i class="bi bi-emoji-sunglasses-fill" style="font-size: 1.5rem;"></i></a>
+                </div>
+                <div class="icon-text">
+                    <h4>@ViewBag.todaySales</h4>
+                    <p><b>Bugünkü Satışlar</b></p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="visitors" style="background-color:#7f8c8d">
+                <div class="icon">
+                    <a href="/Sale/Index/" class="btn btn-default" id="hoverIcon"><i class="fas fa-file-invoice-dollar" style="font-size: 2rem;"></i></a>
+                </div>
+                <div class="icon-text">
+                    <h4>@ViewBag.todayTotalSale<span>₺</span></h4>
+                    <p><b>Bugünkü Kasa</b></p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="total-content">
+        <div class="list_of_members">
+            <div class="sales" style="background-color: #f39c12">
+                <div class="icon">
+                    <a href="/Sale/Index/" class="btn btn-default" id="hoverIcon"><i class="bi bi-arrow-up-square-fill" style="font-size: 1.5rem;"></i></a>
+                </div>
+                <div class="icon-text">
+                    <h4>@ViewBag.mostSaleBrand</h4>
+                    <p><b>En Çok Satan</b></p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="new-users" style="background-color:#d35400">
+                <div class="icon">
+                    <a href="/Sale/Index/" class="btn btn-default" id="hoverIcon"><i class="bi bi-currency-dollar" style="font-size: 1.5rem;"></i></a>
+                </div>
+                <div class="icon-text">
+                    <h4>@ViewBag.totalMoney<span>₺</span></h4>
+                    <p><b>Kasadaki Tutar</b></p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            @*<div class="orders" style="background-color:#e74c3c">
+                    <div class="icon">
+                        <i class="bi bi-file-bar-graph-fill" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <div class="icon-text">
+                        <h4>@ViewBag.d10</h4>
+                        <p><b>Buzdolabı Sayısı</b></p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="visitors" style="background-color:#95a5a6">
+                    <div class="icon">
+                        <i class="bi bi-file-bar-graph-fill" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <div class="icon-text">
+                        <h4>@ViewBag.d11</h4>
+                        <p><b>Laptop Sayısı</b></p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>*@
+        </div>
+    </div>
+<div class="weatherCard" style="background-color: black">
+    <div><a href="#"><i class="bi bi-sliders" style="color: white; font-size: 2rem; float: right"></i></a></div>
+    <div class="icon">
+        <img src="@ViewBag.iconUrl"/>
+    </div>
+    <div class="icon-text">
+        <h4 class="text-white"><b>@ViewBag.city</b></h4>
+        <b class="text-white">@ViewBag.temp &#8451;</b>
+        <b class="text-white">@ViewBag.detail</b>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+</body>
+</html>

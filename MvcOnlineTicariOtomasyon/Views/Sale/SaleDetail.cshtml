@@ -1,0 +1,40 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<SaleAction>
+@{
+    ViewBag.Title = "SaleDetail";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Satış Detay</h2>
+<br/>
+<table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+    <tr>
+        <th>Satış ID</th>
+        <th>Ürün</th>
+        <th>Cari</th>
+        <th>Personel</th>
+        <th>Adet</th>
+        <th>Fiyat</th>
+        <th>Toplam</th>
+        <th>Tarih</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Id</td>
+            <td>@x.Product.Name</td>
+            <td>@x.Customer.Name @x.Customer.Surname</td>
+            <td>@x.Employee.Name @x.Employee.Surname</td>
+            <td>@x.Number</td>
+            <td>@x.Price</td>
+            <td>@x.TotalPrice</td>
+            <td>@x.Date.ToShortDateString()</td>
+        </tr>
+    }
+    </tbody>
+</table>
+<button class="btn btn-default" style="background-color: cornflowerblue"><i class="bi bi-printer text-white"></i></button>
+

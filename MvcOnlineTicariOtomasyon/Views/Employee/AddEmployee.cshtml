@@ -1,0 +1,15 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Employee
+@{
+    ViewBag.Title = "AddEmployee";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Personel Ekle</h2>
+
+<form class="form form-group" method="post">
+    <label>Adı : </label>@Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <label>Soyadı : </label>@Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+    <label>Resim : </label>@Html.TextBoxFor(x => x.Image, new { @class = "form-control" })
+    <label>Departman : </label>@Html.DropDownListFor(x => x.DepartmentID, (IEnumerable<SelectListItem>)ViewBag.result, new { @class = "form-control" })
+    <button class="btn btn-success mt-2">Ekle</button>
+</form>

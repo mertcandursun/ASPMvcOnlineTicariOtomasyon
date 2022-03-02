@@ -1,0 +1,18 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Category
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br/>
+<h2>Yeni Kategori Sayfası</h2>
+<br/>
+<form class="form-group" method="post">
+    <div>
+        <label>Kategori Adı : &nbsp;</label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        @*<input type="text" name="k" />*@
+        <br/>
+        <button type="submit" class="btn btn-success">Ekle</button>
+    </div>
+</form>

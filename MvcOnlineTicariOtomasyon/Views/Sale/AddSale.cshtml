@@ -1,0 +1,16 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.SaleAction
+@{
+    ViewBag.Title = "AddSale";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Satış Oluştur</h2>
+<form class="form form-group" method="post">
+    <label>Ürün : </label>@Html.DropDownListFor(x => x.ProductID, (IEnumerable<SelectListItem>)ViewBag.result1, new {@class="form-control"})
+    <label>Cari : </label>@Html.DropDownListFor(x => x.CustomerID, (IEnumerable<SelectListItem>)ViewBag.result2, new {@class="form-control"})
+    <label>Personel : </label>@Html.DropDownListFor(x => x.EmployeeID, (IEnumerable<SelectListItem>)ViewBag.result, new { @class = "form-control" })
+    <label>Adet : </label>@Html.TextBoxFor(x => x.Number, new { @class = "form-control" })
+    <label>Fiyat : </label>@Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    <label>Toplam : </label>@Html.TextBoxFor(x => x.TotalPrice, new { @class = "form-control" })
+    <button class="btn btn-success mt-2">Oluştur</button>
+</form>
